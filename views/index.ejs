@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome to the Gumball Machine (New Improved Version)</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1 align="center">Welcome to the Gumball Machine</h1>
+    <form name="Gumball" method="post" action="/GumballAction">
+    
+    <p>
+    <div align="center">
+    <textarea name="message" cols="50" rows="15">
+    Mighty Gumball, Inc.
+    Nodejs Standing Gumball
+    
+    Model Number :  <%=message[0]%>
+    Serial Number:  <%=message[1]%>
+    State :  <%=message[2]%>
+   
+    
+    </textArea>
+    <input type="hidden" name="modelNumber" value=<%=message[0]%>/>
+     <input type="hidden" name="serialNumber" value=<%=message[1]%>/>
+    <input type="hidden" name="state" value=<%=message[2]%> />
+    <input type="hidden" name="count" value=<%=message[3]%>/>
+    
+    
+    </div>
+    </p>
+    <p align="center">
+    
+    <img src='../images/giant-gumball-machine.jpg' width="385" height="316"  class='' onmouseover='Gumball'/>
+    
+    
+    </p>
+    
+    <p align="center">
+    <input type="submit" name="event" value="InsertQuater"/>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="submit" name="event" value="TurnTheCrank"/>
+  </body>
+</html>

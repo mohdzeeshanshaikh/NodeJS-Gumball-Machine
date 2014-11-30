@@ -1,0 +1,15 @@
+{
+  "name": "Gumball",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "main":"app.js",
+  "dependencies": {
+    "express": "3.2.6",
+    "ejs": "*",
+    "jade": "*",
+    "node-rest-client": "1.4.1"
+  }
+}
