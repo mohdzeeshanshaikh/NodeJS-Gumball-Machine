@@ -28,9 +28,9 @@ if ('development' == app.get('env')) {
   app.use(express.errorHandler());
 }
 
-app.get('/', routes.index);
+app.get('/gumballStateless', routes.index);
 app.get('/users', user.list);
-app.post('/GumballAction',routes.GumballAction);
+app.post('/gumballStateless',routes.GumballAction);
 
 http.createServer(app).listen(app.get('port'), app.get('ip_address'),function(){
   console.log('Express server listening on port ' + app.get('port'));
