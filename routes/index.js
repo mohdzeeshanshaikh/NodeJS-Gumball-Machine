@@ -8,27 +8,19 @@ exports.index = function(req, res) {
 	var client = new Client();
 
 	// direct way
-	client.get("http://mangesh-grails-gumball-v2.cfapps.io/gumballs.json", function(data,
+	client.get("http://mohdzeeshanshaikh-grails-gumball-v2.cfapps.io/gumballs/1", function(data,
 			response) {
-
 		var arrayData = {};
-
 		arrayData = data;
-		
-
 		var messages = [];
-
 		messages.push(arrayData[0].modelNumber);
 		messages.push(arrayData[0].serialNumber);
 		messages.push("NoCoinState");
 		messages.push(arrayData[0].countGumballs);
-
 		res.render('index', {
 			message : messages
 		});
-
 	});
-
 };
 
 exports.GumballAction = function(req, res) {
@@ -40,9 +32,9 @@ exports.GumballAction = function(req, res) {
 	var serialNumber = req.param('serialNumber');
 
 	// var message=req.param('message');
-	if (event === 'InsertQuater' && state === 'NoCoinState') {
+	if (event === 'Insert Quater' && state === 'NoCoinState') {
 
-		state = 'HasACoinState';
+		state = 'HasCoinState';
 		var messagesToBePut = [];
 
 		messagesToBePut.push(modelNumber);
@@ -54,18 +46,15 @@ exports.GumballAction = function(req, res) {
 		});
 
 	}
-	if (event === 'TurnTheCrank' && state === 'HasACoinState') {
+	if (event === 'Turn Crank' && state === 'HasCoinState') {
 		var messagesToBePutInPost = [];
 		var Client = require('node-rest-client').Client;
 		var client = new Client();
-		client.get("http://mangesh-grails-gumball-v2.cfapps.io/gumballs.json", function(data,
+		client.get("http://mohdzeeshanshaikh-grails-gumball-v2.cfapps.io/gumballs/1", function(data,
 				response) {
 			var ar = {};
-
 			ar = data;
-
 			var count = ar[0].countGumballs;
-
 			if (count !== 0) {
 				count = count - 1;
 				var args = {
@@ -76,7 +65,7 @@ exports.GumballAction = function(req, res) {
 						"Content-Type" : "application/json"
 					}
 				};
-				client.put("http://mangesh-grails-gumball-v2.cfapps.io/gumballs/1", args,
+				client.put("http://mohdzeeshanshaikh-grails-gumball-v2.cfapps.io/gumballs/1", args,
 						function(data, response) {
 							// parsed response body as js object
 							console.log(data);
@@ -103,9 +92,6 @@ exports.GumballAction = function(req, res) {
 					message : messagesToBePutInPost
 				});
 			}
-
 		});
-
 	}
-
 };
